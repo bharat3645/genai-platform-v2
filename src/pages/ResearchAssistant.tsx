@@ -44,7 +44,7 @@ export default function ResearchAssistant() {
 
       setTasks((prev) => prev.map((t) => (t.id === newTask.id ? completedTask : t)));
       setActiveTask(completedTask);
-    } catch (error) {
+    } catch {
       const failedTask: ResearchTask = {
         ...newTask,
         status: 'failed',

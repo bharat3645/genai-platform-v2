@@ -5,7 +5,7 @@ import { sqlGenerate, sqlExecute } from '../lib/api';
 interface QueryResult {
   query: string;
   sql: string;
-  results: any[];
+  results: Record<string, unknown>[];
   timestamp: Date;
 }
 
@@ -271,7 +271,7 @@ export default function TextToSQL() {
                     <tbody>
                       {currentResult.results.map((row, index) => (
                         <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                          {Object.values(row).map((value: any, i) => (
+                          {Object.values(row).map((value: unknown, i) => (
                             <td key={i} className="py-3 px-4 text-gray-900">
                               {value?.toString() || '-'}
                             </td>

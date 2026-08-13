@@ -247,7 +247,7 @@ export default function KnowledgeGraph({
     );
 
     const handleClick = useCallback(
-        (_e: React.MouseEvent<HTMLCanvasElement>) => {
+        () => {
             if (hoveredNode) {
                 const node = nodes.find((n) => n.id === hoveredNode);
                 if (node) {

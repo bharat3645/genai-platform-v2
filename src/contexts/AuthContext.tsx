@@ -57,8 +57,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const data = await apiLogin(email, password);
       setUser({ id: data.user_id, email: data.email });
       return {};
-    } catch (err: any) {
-      return { error: err.message || 'Login failed' };
+    } catch (err) {
+      const message = err instanceof Error ? err.message : undefined;
+      return { error: message || 'Login failed' };
     }
   };
 
@@ -67,8 +68,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const data = await apiRegister(email, password, displayName || '');
       setUser({ id: data.user_id, email: data.email });
       return {};
-    } catch (err: any) {
-      return { error: err.message || 'Registration failed' };
+    } catch (err) {
+      const message = err instanceof Error ? err.message : undefined;
+      return { error: message || 'Registration failed' };
     }
   };
 
